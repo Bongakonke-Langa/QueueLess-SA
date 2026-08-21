@@ -1,0 +1,1551 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/zrebtj",
+    "id": "zrebtj",
+    "slide": 9,
+    "layoutId": "b4329b30-94a6-4269-b529-1a8222ea806c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "9785f10c-a38d-4f4f-8d6d-fcda546c4617",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Helvetica Neue"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "b4329b30-94a6-4269-b529-1a8222ea806c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "9785f10c-a38d-4f4f-8d6d-fcda546c4617",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "9785f10c-a38d-4f4f-8d6d-fcda546c4617",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1gvm1szi",
+      "id": "1",
+      "name": "Slide-Number-Placeholder-3-2",
+      "bbox": [
+        1184.18,
+        659.24,
+        54.48,
+        25.33
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.0"
+      },
+      "geometry": "rect",
+      "text": "9",
+      "textPreview": "9",
+      "resolvedFontSize": 13.33,
+      "resolvedTextStyle": {
+        "anchor": 3,
+        "fontSize": 13.33,
+        "typeface": "Helvetica Neue",
+        "color": "#000000",
+        "alignment": "right",
+        "verticalAlignment": "bottom",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "9"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "9",
+          "resolvedTextStyle": {
+            "anchor": 3,
+            "fontSize": 13.33,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "right",
+            "verticalAlignment": "bottom",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "9",
+              "anchor": 3,
+              "fontSize": 13.33,
+              "typeface": "Helvetica Neue",
+              "color": "#000000",
+              "alignment": "right",
+              "verticalAlignment": "bottom",
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/et4nqdgr",
+      "id": "2",
+      "name": "Title-10-3",
+      "bbox": [
+        41.33,
+        36.12,
+        1197.33,
+        109.97
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1"
+      },
+      "geometry": "rect",
+      "text": "One pilot can prove how much time QueueLess returns",
+      "textPreview": "One pilot can prove how much time QueueLess returns",
+      "resolvedFontSize": 38.67,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 38.67,
+        "typeface": "Helvetica Neue",
+        "color": "#000000",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "One pilot can prove how much time QueueLess returns"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "One pilot can prove how much time QueueLess returns",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "anchor": 1,
+            "fontSize": 38.67,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "verticalAlignment": "top",
+            "autoFit": "shrinkText",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "One pilot can prove how much time QueueLess returns",
+              "fontSize": 42,
+              "typeface": "Helvetica Neue",
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fud4zihc",
+      "id": "3",
+      "name": "Google-Shape-2259-p159-4",
+      "bbox": [
+        35.46,
+        354.2,
+        1285.61,
+        0.03
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.2"
+      },
+      "geometry": "straightConnector1",
+      "lineColor": "#000000",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oj65wny9",
+      "id": "4",
+      "name": "Google-Shape-2260-p159-5",
+      "bbox": [
+        35.46,
+        348.58,
+        11.24,
+        11.24
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.3"
+      },
+      "geometry": "ellipse",
+      "fillColor": "#000000"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pkfm5sze",
+      "id": "5",
+      "name": "Google-Shape-2261-p159-6",
+      "bbox": [
+        446.38,
+        348.58,
+        11.24,
+        11.24
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.4"
+      },
+      "geometry": "ellipse",
+      "fillColor": "#000000"
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2h4nuxg3",
+      "id": "6",
+      "name": "Google-Shape-2262-p159-7",
+      "bbox": [
+        858.38,
+        348.58,
+        11.24,
+        11.24
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.5"
+      },
+      "geometry": "ellipse",
+      "fillColor": "#000000"
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3ix432ho",
+      "id": "7",
+      "name": "Content-Placeholder-15-8",
+      "bbox": [
+        41.33,
+        298.51,
+        169.33,
+        27.55
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.6"
+      },
+      "geometry": "rect",
+      "text": "CONNECT",
+      "textPreview": "CONNECT",
+      "resolvedFontSize": 21.33,
+      "resolvedTextStyle": {
+        "fontSize": 21.33,
+        "typeface": "Helvetica Neue",
+        "color": "#000000",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CONNECT"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CONNECT",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "fontSize": 21.33,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "autoFit": "none",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "CONNECT",
+              "fontSize": 18,
+              "typeface": "Helvetica Neue",
+              "color": "#087D6B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4n2lk3yp",
+      "id": "8",
+      "name": "Content-Placeholder-15-9",
+      "bbox": [
+        450.83,
+        298.51,
+        169.33,
+        27.55
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.7"
+      },
+      "geometry": "rect",
+      "text": "PILOT",
+      "textPreview": "PILOT",
+      "resolvedFontSize": 21.33,
+      "resolvedTextStyle": {
+        "fontSize": 21.33,
+        "typeface": "Helvetica Neue",
+        "color": "#000000",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PILOT"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PILOT",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "fontSize": 21.33,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "autoFit": "none",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PILOT",
+              "fontSize": 18,
+              "typeface": "Helvetica Neue",
+              "color": "#087D6B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5obmt8za",
+      "id": "9",
+      "name": "Content-Placeholder-15-10",
+      "bbox": [
+        863.33,
+        298.51,
+        169.33,
+        27.55
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.8"
+      },
+      "geometry": "rect",
+      "text": "PROVE",
+      "textPreview": "PROVE",
+      "resolvedFontSize": 21.33,
+      "resolvedTextStyle": {
+        "fontSize": 21.33,
+        "typeface": "Helvetica Neue",
+        "color": "#000000",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PROVE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PROVE",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "fontSize": 21.33,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "autoFit": "none",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PROVE",
+              "fontSize": 18,
+              "typeface": "Helvetica Neue",
+              "color": "#087D6B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tgvul0jq",
+      "id": "10",
+      "name": "Text-Placeholder-16-11",
+      "bbox": [
+        453.24,
+        401.33,
+        331.35,
+        166.54
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.9"
+      },
+      "geometry": "rect",
+      "text": "One high-volume branch\nTrain staff and launch citizen and low-data access.",
+      "textPreview": "One high-volume branch | Train staff and launch citizen and low-data access.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Helvetica Neue",
+        "color": "#000000",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "One high-volume branch"
+          },
+          {
+            "index": 2,
+            "text": "Train staff and launch citizen and"
+          },
+          {
+            "index": 3,
+            "text": "low-data access."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "One high-volume branch",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "autoFit": "none",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "One high-volume branch",
+              "fontSize": 24,
+              "typeface": "Helvetica Neue",
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Train staff and launch citizen and low-data access.",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "autoFit": "none",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Train staff and launch citizen and low-data access.",
+              "fontSize": 20,
+              "typeface": "Helvetica Neue",
+              "color": "#000000"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8fmtsvi5",
+      "id": "11",
+      "name": "Text-Placeholder-16-12",
+      "bbox": [
+        41.98,
+        401.33,
+        331.35,
+        166.54
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.10"
+      },
+      "geometry": "rect",
+      "text": "One trusted queue feed\nLink ticketing data or authenticated staff updates.",
+      "textPreview": "One trusted queue feed | Link ticketing data or authenticated staff updates.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Helvetica Neue",
+        "color": "#000000",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "One trusted queue feed"
+          },
+          {
+            "index": 2,
+            "text": "Link ticketing data or authenticated"
+          },
+          {
+            "index": 3,
+            "text": "staff updates."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "One trusted queue feed",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "autoFit": "none",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "One trusted queue feed",
+              "fontSize": 24,
+              "typeface": "Helvetica Neue",
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Link ticketing data or authenticated staff updates.",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "autoFit": "none",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Link ticketing data or authenticated staff updates.",
+              "fontSize": 20,
+              "typeface": "Helvetica Neue",
+              "color": "#000000"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7udcjq1k",
+      "id": "12",
+      "name": "Text-Placeholder-16-13",
+      "bbox": [
+        858.57,
+        401.33,
+        331.35,
+        166.54
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.11"
+      },
+      "geometry": "rect",
+      "text": "One measurable result\nTrack waits, crowding, no-shows and hours returned.",
+      "textPreview": "One measurable result | Track waits, crowding, no-shows and hours returned.",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Helvetica Neue",
+        "color": "#000000",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "One measurable result"
+          },
+          {
+            "index": 2,
+            "text": "Track waits, crowding, no-shows"
+          },
+          {
+            "index": 3,
+            "text": "and hours returned."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "One measurable result",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "autoFit": "none",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "One measurable result",
+              "fontSize": 24,
+              "typeface": "Helvetica Neue",
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Track waits, crowding, no-shows and hours returned.",
+          "lineSpacingPercent": 105000,
+          "spaceAfter": 800,
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Helvetica Neue",
+            "color": "#000000",
+            "alignment": "left",
+            "autoFit": "none",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Track waits, crowding, no-shows and hours returned.",
+              "fontSize": 20,
+              "typeface": "Helvetica Neue",
+              "color": "#000000"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": [
+    {
+      "index": 1,
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1280,
+        "height": 720
+      },
+      "baseUnit": 1,
+      "root": {
+        "path": "0",
+        "kind": "layers",
+        "name": "codex-grid-layout-library#slide-17",
+        "requestedSize": {
+          "width": {
+            "mode": "fill",
+            "value": 1
+          },
+          "height": {
+            "mode": "fill",
+            "value": 1
+          }
+        },
+        "intrinsicSize": {
+          "width": 1321.07,
+          "height": 684.57
+        },
+        "frame": {
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "children": [
+          {
+            "path": "0.0",
+            "kind": "text",
+            "name": "Slide-Number-Placeholder-3-2",
+            "position": {
+              "left": 1184.18,
+              "top": 659.24
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 54.48
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 25.33
+              }
+            },
+            "intrinsicSize": {
+              "width": 54.48,
+              "height": 25.33
+            },
+            "frame": {
+              "left": 1184.18,
+              "top": 659.24,
+              "width": 54.48,
+              "height": 25.33
+            },
+            "snappedFrame": {
+              "left": 1184.18,
+              "top": 659.24,
+              "width": 54.48,
+              "height": 25.33
+            },
+            "children": [],
+            "text": "9",
+            "transform": "none",
+            "element": {
+              "aid": "sh/1gvm1szi",
+              "id": "1",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.1",
+            "kind": "text",
+            "name": "Title-10-3",
+            "position": {
+              "left": 41.33,
+              "top": 36.12
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 1197.33
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 109.97
+              }
+            },
+            "intrinsicSize": {
+              "width": 1197.33,
+              "height": 109.97
+            },
+            "frame": {
+              "left": 41.33,
+              "top": 36.12,
+              "width": 1197.33,
+              "height": 109.97
+            },
+            "snappedFrame": {
+              "left": 41.33,
+              "top": 36.12,
+              "width": 1197.33,
+              "height": 109.97
+            },
+            "children": [],
+            "text": "One pilot can prove how much time QueueLess returns",
+            "transform": "none",
+            "element": {
+              "aid": "sh/et4nqdgr",
+              "id": "2",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.2",
+            "kind": "shape",
+            "name": "Google-Shape-2259-p159-4",
+            "position": {
+              "left": 35.46,
+              "top": 354.2
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 1285.61
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 0.03
+              }
+            },
+            "intrinsicSize": {
+              "width": 1285.61,
+              "height": 0.03
+            },
+            "frame": {
+              "left": 35.46,
+              "top": 354.2,
+              "width": 1285.61,
+              "height": 0.03
+            },
+            "snappedFrame": {
+              "left": 35.46,
+              "top": 354.2,
+              "width": 1285.61,
+              "height": 0.03
+            },
+            "children": [],
+            "geometry": "straightConnector1",
+            "element": {
+              "aid": "sh/fud4zihc",
+              "id": "3",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.3",
+            "kind": "shape",
+            "name": "Google-Shape-2260-p159-5",
+            "position": {
+              "left": 35.46,
+              "top": 348.58
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 11.24
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 11.24
+              }
+            },
+            "intrinsicSize": {
+              "width": 11.24,
+              "height": 11.24
+            },
+            "frame": {
+              "left": 35.46,
+              "top": 348.58,
+              "width": 11.24,
+              "height": 11.24
+            },
+            "snappedFrame": {
+              "left": 35.46,
+              "top": 348.58,
+              "width": 11.24,
+              "height": 11.24
+            },
+            "children": [],
+            "geometry": "ellipse",
+            "element": {
+              "aid": "sh/oj65wny9",
+              "id": "4",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.4",
+            "kind": "shape",
+            "name": "Google-Shape-2261-p159-6",
+            "position": {
+              "left": 446.38,
+              "top": 348.58
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 11.24
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 11.24
+              }
+            },
+            "intrinsicSize": {
+              "width": 11.24,
+              "height": 11.24
+            },
+            "frame": {
+              "left": 446.38,
+              "top": 348.58,
+              "width": 11.24,
+              "height": 11.24
+            },
+            "snappedFrame": {
+              "left": 446.38,
+              "top": 348.58,
+              "width": 11.24,
+              "height": 11.24
+            },
+            "children": [],
+            "geometry": "ellipse",
+            "element": {
+              "aid": "sh/pkfm5sze",
+              "id": "5",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.5",
+            "kind": "shape",
+            "name": "Google-Shape-2262-p159-7",
+            "position": {
+              "left": 858.38,
+              "top": 348.58
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 11.24
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 11.24
+              }
+            },
+            "intrinsicSize": {
+              "width": 11.24,
+              "height": 11.24
+            },
+            "frame": {
+              "left": 858.38,
+              "top": 348.58,
+              "width": 11.24,
+              "height": 11.24
+            },
+            "snappedFrame": {
+              "left": 858.38,
+              "top": 348.58,
+              "width": 11.24,
+              "height": 11.24
+            },
+            "children": [],
+            "geometry": "ellipse",
+            "element": {
+              "aid": "sh/2h4nuxg3",
+              "id": "6",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.6",
+            "kind": "text",
+            "name": "Content-Placeholder-15-8",
+            "position": {
+              "left": 41.33,
+              "top": 298.51
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 169.33
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 27.55
+              }
+            },
+            "intrinsicSize": {
+              "width": 169.33,
+              "height": 27.55
+            },
+            "frame": {
+              "left": 41.33,
+              "top": 298.51,
+              "width": 169.33,
+              "height": 27.55
+            },
+            "snappedFrame": {
+              "left": 41.33,
+              "top": 298.51,
+              "width": 169.33,
+              "height": 27.55
+            },
+            "children": [],
+            "text": "CONNECT",
+            "transform": "none",
+            "element": {
+              "aid": "sh/3ix432ho",
+              "id": "7",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.7",
+            "kind": "text",
+            "name": "Content-Placeholder-15-9",
+            "position": {
+              "left": 450.83,
+              "top": 298.51
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 169.33
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 27.55
+              }
+            },
+            "intrinsicSize": {
+              "width": 169.33,
+              "height": 27.55
+            },
+            "frame": {
+              "left": 450.83,
+              "top": 298.51,
+              "width": 169.33,
+              "height": 27.55
+            },
+            "snappedFrame": {
+              "left": 450.83,
+              "top": 298.51,
+              "width": 169.33,
+              "height": 27.55
+            },
+            "children": [],
+            "text": "PILOT",
+            "transform": "none",
+            "element": {
+              "aid": "sh/4n2lk3yp",
+              "id": "8",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.8",
+            "kind": "text",
+            "name": "Content-Placeholder-15-10",
+            "position": {
+              "left": 863.33,
+              "top": 298.51
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 169.33
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 27.55
+              }
+            },
+            "intrinsicSize": {
+              "width": 169.33,
+              "height": 27.55
+            },
+            "frame": {
+              "left": 863.33,
+              "top": 298.51,
+              "width": 169.33,
+              "height": 27.55
+            },
+            "snappedFrame": {
+              "left": 863.33,
+              "top": 298.51,
+              "width": 169.33,
+              "height": 27.55
+            },
+            "children": [],
+            "text": "PROVE",
+            "transform": "none",
+            "element": {
+              "aid": "sh/5obmt8za",
+              "id": "9",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.9",
+            "kind": "text",
+            "name": "Text-Placeholder-16-11",
+            "position": {
+              "left": 453.24,
+              "top": 401.33
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 331.35
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 166.54
+              }
+            },
+            "intrinsicSize": {
+              "width": 331.35,
+              "height": 166.54
+            },
+            "frame": {
+              "left": 453.24,
+              "top": 401.33,
+              "width": 331.35,
+              "height": 166.54
+            },
+            "snappedFrame": {
+              "left": 453.24,
+              "top": 401.33,
+              "width": 331.35,
+              "height": 166.54
+            },
+            "children": [],
+            "text": "One high-volume branch\nTrain staff and launch citizen and low-data access.",
+            "transform": "none",
+            "element": {
+              "aid": "sh/tgvul0jq",
+              "id": "10",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.10",
+            "kind": "text",
+            "name": "Text-Placeholder-16-12",
+            "position": {
+              "left": 41.98,
+              "top": 401.33
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 331.35
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 166.54
+              }
+            },
+            "intrinsicSize": {
+              "width": 331.35,
+              "height": 166.54
+            },
+            "frame": {
+              "left": 41.98,
+              "top": 401.33,
+              "width": 331.35,
+              "height": 166.54
+            },
+            "snappedFrame": {
+              "left": 41.98,
+              "top": 401.33,
+              "width": 331.35,
+              "height": 166.54
+            },
+            "children": [],
+            "text": "One trusted queue feed\nLink ticketing data or authenticated staff updates.",
+            "transform": "none",
+            "element": {
+              "aid": "sh/8fmtsvi5",
+              "id": "11",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.11",
+            "kind": "text",
+            "name": "Text-Placeholder-16-13",
+            "position": {
+              "left": 858.57,
+              "top": 401.33
+            },
+            "requestedSize": {
+              "width": {
+                "mode": "fixed",
+                "value": 331.35
+              },
+              "height": {
+                "mode": "fixed",
+                "value": 166.54
+              }
+            },
+            "intrinsicSize": {
+              "width": 331.35,
+              "height": 166.54
+            },
+            "frame": {
+              "left": 858.57,
+              "top": 401.33,
+              "width": 331.35,
+              "height": 166.54
+            },
+            "snappedFrame": {
+              "left": 858.57,
+              "top": 401.33,
+              "width": 331.35,
+              "height": 166.54
+            },
+            "children": [],
+            "text": "One measurable result\nTrack waits, crowding, no-shows and hours returned.",
+            "transform": "none",
+            "element": {
+              "aid": "sh/7udcjq1k",
+              "id": "12",
+              "kind": "shape"
+            }
+          }
+        ],
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "alignItems": "stretch",
+        "justifyItems": "stretch",
+        "contentFrame": {
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "items": [
+          {
+            "path": "0.0",
+            "frame": {
+              "left": 1184.18,
+              "top": 659.24,
+              "width": 54.48,
+              "height": 25.33
+            }
+          },
+          {
+            "path": "0.1",
+            "frame": {
+              "left": 41.33,
+              "top": 36.12,
+              "width": 1197.33,
+              "height": 109.97
+            }
+          },
+          {
+            "path": "0.2",
+            "frame": {
+              "left": 35.46,
+              "top": 354.2,
+              "width": 1285.61,
+              "height": 0.03
+            }
+          },
+          {
+            "path": "0.3",
+            "frame": {
+              "left": 35.46,
+              "top": 348.58,
+              "width": 11.24,
+              "height": 11.24
+            }
+          },
+          {
+            "path": "0.4",
+            "frame": {
+              "left": 446.38,
+              "top": 348.58,
+              "width": 11.24,
+              "height": 11.24
+            }
+          },
+          {
+            "path": "0.5",
+            "frame": {
+              "left": 858.38,
+              "top": 348.58,
+              "width": 11.24,
+              "height": 11.24
+            }
+          },
+          {
+            "path": "0.6",
+            "frame": {
+              "left": 41.33,
+              "top": 298.51,
+              "width": 169.33,
+              "height": 27.55
+            }
+          },
+          {
+            "path": "0.7",
+            "frame": {
+              "left": 450.83,
+              "top": 298.51,
+              "width": 169.33,
+              "height": 27.55
+            }
+          },
+          {
+            "path": "0.8",
+            "frame": {
+              "left": 863.33,
+              "top": 298.51,
+              "width": 169.33,
+              "height": 27.55
+            }
+          },
+          {
+            "path": "0.9",
+            "frame": {
+              "left": 453.24,
+              "top": 401.33,
+              "width": 331.35,
+              "height": 166.54
+            }
+          },
+          {
+            "path": "0.10",
+            "frame": {
+              "left": 41.98,
+              "top": 401.33,
+              "width": 331.35,
+              "height": 166.54
+            }
+          },
+          {
+            "path": "0.11",
+            "frame": {
+              "left": 858.57,
+              "top": 401.33,
+              "width": 331.35,
+              "height": 166.54
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

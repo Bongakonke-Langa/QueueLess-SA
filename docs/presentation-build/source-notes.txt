@@ -1,0 +1,9 @@
+QueueLess SA deck source notes
+
+- Product content and screenshots are project-authored.
+- OpenStreetMap attribution: https://www.openstreetmap.org/copyright
+- Nominatim Search API: https://nominatim.org/release-docs/latest/api/Search/
+- Nominatim Usage Policy: https://operations.osmfoundation.org/policies/nominatim/
+- Screenshots were captured from the local working prototype on 7 August 2026.
+- Queue conditions, impact metrics, appointments, and messaging flows shown in the deck are synthetic prototype data.
+- No externally sourced non-trivial impact statistic is presented; pilot measures are project-authored recommendations.
