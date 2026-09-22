@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
+  BarChart3,
   Building2,
   CircleUserRound,
   MessageSquare,
@@ -52,6 +53,8 @@ export default function StaffView({
   const [busyTicketId, setBusyTicketId] = useState(null);
   const [publishing, setPublishing] = useState(false);
   const [resetting, setResetting] = useState(false);
+  const [analytics, setAnalytics] = useState(null);
+  const [analyticsError, setAnalyticsError] = useState("");
 
   const liveBranch = queue?.branch
     ? { ...queue.branch, accent: queue.branch.accent, services: queue.branch.services }
@@ -78,20 +81,45 @@ export default function StaffView({
     }
   }, []);
 
+  const loadAnalytics = useCallback(async (branchId) => {
+    try {
+      const response = await fetch(`/api/staff/analytics?branchId=${branchId}`);
+      if (!response.ok) {
+        setAnalyticsError("Analytics are unavailable right now.");
+        return;
+      }
+      setAnalytics(await response.json());
+      setAnalyticsError("");
+    } catch {
+      setAnalyticsError("Analytics are unavailable right now.");
+    }
+  }, []);
+
   useEffect(() => {
     if (!selectedId) return undefined;
     loadQueue(selectedId);
+    loadAnalytics(selectedId);
     const timer = window.setInterval(() => {
-      if (document.visibilityState === "visible") loadQueue(selectedId);
+      if (document.visibilityState === "visible") {
+        loadQueue(selectedId);
+        loadAnalytics(selectedId);
+      }
     }, QUEUE_POLL_MS);
     return () => window.clearInterval(timer);
-  }, [selectedId, loadQueue]);
+  }, [selectedId, loadQueue, loadAnalytics]);
 
   const tickets = queue?.tickets || [];
   const waitingTickets = tickets.filter((t) => t.status === "WAITING");
   const nextWaiting = waitingTickets[0] || null;
   const activeCount = tickets.length;
   const livePeople = Math.min(draft.people + activeCount, 999);
+
+  const todayStats = analytics?.today || null;
+  const history = analytics?.history || [];
+  const peakDay = history.length
+    ? history.reduce((best, day) => (day.served > (best?.served ?? -1) ? day : best), null)
+    : null;
+  const historyPeak = Math.max(1, ...history.map((day) => day.served));
 
   async function handleTicketAction(ticket, action) {
     setBusyTicketId(ticket.id);
@@ -280,6 +308,37 @@ export default function StaffView({
               <div><strong>{tickets.filter((t) => t.status === "SERVING").length}</strong><span>at counters</span></div>
               <div><strong>{occupancy}%</strong><span>occupancy</span></div>
             </div>
+          </section>
+
+          <section className="impact-panel">
+            <div className="panel-heading"><span><BarChart3 size={19} /></span><div><h2>Branch analytics</h2><p>Computed from visit history</p></div></div>
+            {analyticsError ? (
+              <p className="staff-queue-empty">{analyticsError}</p>
+            ) : !todayStats ? (
+              <p className="staff-queue-empty">Loading analytics…</p>
+            ) : (
+              <>
+                <div className="impact-metrics">
+                  <div><strong>{todayStats.served}</strong><span>served today</span></div>
+                  <div><strong>{todayStats.avgWaitMinutes} min</strong><span>avg actual wait</span></div>
+                  <div><strong>{todayStats.noShowRate}%</strong><span>no-show rate</span></div>
+                  <div><strong>{todayStats.savedMinutes}</strong><span>min saved today</span></div>
+                </div>
+                {history.length > 0 && (
+                  <div className="analytics-history">
+                    <small>LAST 14 DAYS{peakDay ? ` · PEAK ${peakDay.day} (${peakDay.served} SERVED)` : ""}</small>
+                    <div className="analytics-bars" role="img" aria-label="Visits served per day over the last 14 days">
+                      {history.map((day) => (
+                        <span key={day.day} title={`${day.day}: ${day.served} served · ${day.noShows} no-shows`}>
+                          <i style={{ height: `${Math.max(6, Math.round((day.served / historyPeak) * 100))}%` }} />
+                          <b>{day.day.slice(5)}</b>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
           </section>
 
           {demoMode && (

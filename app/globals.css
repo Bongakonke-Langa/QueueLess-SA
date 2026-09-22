@@ -3469,6 +3469,13 @@ h3 {
 .capacity-meter i { display: block; height: 100%; border-radius: inherit; background: var(--blue); }
 .capacity-meter b { color: var(--blue); font-size: 10px; }
 
+.analytics-history { margin-top: 12px; }
+.analytics-history small { color: var(--muted); font-size: 7.5px; font-weight: 800; letter-spacing: .04em; }
+.analytics-bars { display: flex; align-items: flex-end; gap: 4px; height: 92px; margin-top: 8px; padding: 8px 6px 4px; border: 1px solid var(--soft-line); border-radius: 5px; background: #fafbf9; }
+.analytics-bars > span { display: flex; flex: 1; min-width: 0; flex-direction: column; align-items: center; gap: 3px; height: 100%; justify-content: flex-end; }
+.analytics-bars i { display: block; width: 100%; max-width: 14px; border-radius: 3px 3px 1px 1px; background: var(--blue); }
+.analytics-bars b { color: var(--muted); font-size: 6.5px; font-weight: 700; }
+
 .operations-toggles { display: grid; margin-top: 12px; border-block: 1px solid var(--soft-line); }
 .operations-toggles > button { display: grid; grid-template-columns: minmax(0,1fr) auto; min-height: 60px; align-items: center; gap: 10px; padding: 8px 2px; border-bottom: 1px solid var(--soft-line); background: transparent; text-align: left; }
 .operations-toggles > button:last-child { border-bottom: 0; }
@@ -4116,6 +4123,29 @@ h3 {
 .staff-action.quiet { border-color: var(--coral-soft); color: var(--danger); }
 .staff-queue-empty { margin: 4px 0 0; padding: 16px; border: 1px dashed var(--line); border-radius: 6px; color: var(--muted); font-size: 9.5px; text-align: center; }
 .staff-queue-error { margin: 4px 0 0; padding: 11px; border-radius: 5px; background: var(--coral-soft); color: var(--danger); font-size: 9px; font-weight: 700; }
+
+/* In-house toast stack (replaces Base UI toasts — no flushSync, React 18 safe) */
+.ql-toasts { position: fixed; z-index: 9999; display: flex; flex-direction: column; gap: 8px; width: min(360px, calc(100vw - 32px)); pointer-events: none; }
+.ql-toasts--bottom-right { right: 16px; bottom: 16px; }
+.ql-toasts--bottom-left { left: 16px; bottom: 16px; }
+.ql-toasts--bottom-center { left: 50%; bottom: 16px; transform: translateX(-50%); }
+.ql-toasts--top-right { right: 16px; top: 16px; }
+.ql-toasts--top-left { left: 16px; top: 16px; }
+.ql-toasts--top-center { left: 50%; top: 16px; transform: translateX(-50%); }
+.ql-toast { display: flex; align-items: flex-start; gap: 10px; padding: 12px 12px 12px 13px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface, #fff); box-shadow: 0 10px 30px rgba(21, 51, 47, .14); pointer-events: auto; animation: ql-toast-in .28s cubic-bezier(.22, 1, .36, 1); }
+.ql-toast-icon { display: grid; width: 26px; height: 26px; flex-shrink: 0; place-items: center; border-radius: 50%; }
+.ql-toast-icon svg { width: 16px; height: 16px; }
+.ql-toast--success .ql-toast-icon { background: var(--teal-soft); color: var(--teal-dark); }
+.ql-toast--info .ql-toast-icon { background: var(--blue-soft); color: var(--blue); }
+.ql-toast--error .ql-toast-icon { background: var(--coral-soft); color: var(--danger); }
+.ql-toast--warning .ql-toast-icon { background: var(--gold-soft); color: #84600d; }
+.ql-toast-body { display: flex; min-width: 0; flex: 1; flex-direction: column; gap: 2px; }
+.ql-toast-title { margin: 0; font-size: 13px; font-weight: 800; color: var(--ink); }
+.ql-toast-description { margin: 0; font-size: 12px; color: var(--muted); }
+.ql-toast-close { display: grid; width: 24px; height: 24px; flex-shrink: 0; place-items: center; border: 0; border-radius: 6px; background: transparent; color: var(--muted); cursor: pointer; }
+.ql-toast-close:hover { background: #f0f2ee; color: var(--ink); }
+.ql-toast-close svg { width: 14px; height: 14px; }
+@keyframes ql-toast-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
 
 /* Admin — branch network table */
 .admin-table { overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }

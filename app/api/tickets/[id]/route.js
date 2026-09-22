@@ -82,7 +82,10 @@ export async function PATCH(request, context) {
 
   switch (action) {
     case "check-in": {
-      if (ticket.status !== "WAITING") {
+      // Check-in is allowed while WAITING, or after being CALLED (citizen
+      // arrived on the call — the normal real-world sequence). It is only
+      // rejected once staff have started serving or the ticket is closed.
+      if (!["WAITING", "CALLED"].includes(ticket.status)) {
         return NextResponse.json({ error: "This ticket is already being handled." }, { status: 409 });
       }
       updated = await db.queueTicket.update({

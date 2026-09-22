@@ -236,8 +236,8 @@ export function AppProvider({ children }) {
     });
   }
 
-  // Transient feedback via the coss toast stack; durable notifications live
-  // on the server.
+  // Transient feedback via the in-house toast stack; durable notifications live
+  // on the server. Plain React state under the hood — safe to call anywhere.
   function notify(title, body, type = "queue") {
     const toastType = type === "queue" ? "success" : "info";
     playNotificationSound();

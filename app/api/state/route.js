@@ -3,6 +3,8 @@ import { getSessionUser, unauthorised } from "../../lib/server/auth";
 import {
   ACTIVE_STATUSES,
   aheadCountFor,
+  expireOverdueCalls,
+  notifyUser,
   serializeBranch,
   serializeNotification,
   serializeTicket,
@@ -17,6 +19,35 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   const user = await getSessionUser();
   if (!user) return unauthorised();
+
+  // Lazy automatic no-show release: any CALLED ticket past its branch's
+  // arrival grace period flips to NO_SHOW before we build the response,
+  // so citizen + staff views agree on the outcome within one poll cycle.
+  await expireOverdueCalls();
+
+  // Appointment reminders: CONFIRMED slots starting within the next 2h get
+  // one "leaving soon" notification each (reminderSent keeps it once-only).
+  // Lazy, like the no-show release — no scheduler needed on serverless.
+  const reminderWindowEnd = new Date(Date.now() + 2 * 60 * 60 * 1000);
+  const dueReminders = await db.appointment.findMany({
+    where: {
+      userId: user.id,
+      status: "CONFIRMED",
+      reminderSent: false,
+      slotAt: { gte: new Date(), lte: reminderWindowEnd },
+    },
+    include: { branch: true },
+  });
+  for (const appt of dueReminders) {
+    await db.appointment.update({ where: { id: appt.id }, data: { reminderSent: true } });
+    const when = appt.slotAt.toLocaleTimeString("en-ZA", { hour: "2-digit", minute: "2-digit", hour12: false });
+    await notifyUser(
+      user.id,
+      "Appointment coming up",
+      `${appt.serviceName} at ${appt.branch?.name || "your branch"} · ${when}. Leave now to arrive on time.`,
+      "appointment",
+    );
+  }
 
   const branchesRaw = await db.branch.findMany({
     include: {

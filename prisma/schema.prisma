@@ -124,6 +124,7 @@ model Appointment {
   serviceName String
   slotAt      DateTime
   status      String   @default("CONFIRMED")
+  reminderSent Boolean @default(false)
   createdAt   DateTime @default(now())
 
   @@index([userId, status])

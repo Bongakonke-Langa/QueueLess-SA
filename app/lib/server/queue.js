@@ -154,3 +154,46 @@ export async function sendLeaveAlerts(branchId) {
     }
   }
 }
+
+/**
+ * Automatic no-show release (the promise behind the staff "arrival grace period").
+ *
+ * A CALLED ticket expires when the citizen has not checked in within
+ * `branch.graceMinutes` of being called. Callers should invoke this lazily at
+ * the top of hot read paths (`/api/state`, `/api/staff/queue`) instead of a
+ * cron — Netlify Functions have no always-on scheduler, and a 10s poll cadence
+ * means expiry lands within seconds of the deadline anyway.
+ *
+ * Each expired ticket flips to NO_SHOW, notifies its owner, and the next
+ * waiting citizen gets a leave alert. Returns the number of expired tickets.
+ */
+export async function expireOverdueCalls(branchId = null) {
+  const now = Date.now();
+  const candidates = await db.queueTicket.findMany({
+    where: {
+      status: "CALLED",
+      checkedIn: false,
+      ...(branchId ? { branchId } : {}),
+    },
+    include: { branch: true },
+  });
+  let expired = 0;
+  const touchedBranches = new Set();
+  for (const ticket of candidates) {
+    if (!ticket.calledAt) continue;
+    const graceMs = Math.max(1, ticket.branch?.graceMinutes ?? 10) * 60 * 1000;
+    if (now - ticket.calledAt.getTime() < graceMs) continue;
+    await db.queueTicket.update({ where: { id: ticket.id }, data: { status: "NO_SHOW" } });
+    await notifyUser(
+      ticket.userId,
+      "Your place was released",
+      `Ticket ${ticket.code} at ${ticket.branch?.name || "the branch"} was closed after no response within the arrival grace period.`,
+    );
+    touchedBranches.add(ticket.branchId);
+    expired += 1;
+  }
+  for (const id of touchedBranches) {
+    await sendLeaveAlerts(id);
+  }
+  return expired;
+}

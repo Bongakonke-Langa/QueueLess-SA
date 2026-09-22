@@ -3,6 +3,7 @@ import { getSessionUser, unauthorised } from "../../../lib/server/auth";
 import {
   ACTIVE_STATUSES,
   aheadCountFor,
+  expireOverdueCalls,
   serialiseStaffTicket,
   serializeBranch,
 } from "../../../lib/server/queue";
@@ -25,6 +26,10 @@ export async function GET(request) {
   if (!Number.isInteger(branchId)) {
     return Response.json({ error: "No branch is assigned to this account." }, { status: 400 });
   }
+
+  // Same lazy release as /api/state, scoped to this branch so the staff
+  // console never shows an already-expired CALLED ticket.
+  await expireOverdueCalls(branchId);
 
   const branch = await db.branch.findUnique({
     where: { id: branchId },
