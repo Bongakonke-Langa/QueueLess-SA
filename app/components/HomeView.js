@@ -24,7 +24,7 @@ import LocationStatusPanel from "./LocationStatusPanel";
 import ServiceMap from "./ServiceMap";
 import { IconButton } from "./ui";
 
-export default function HomeView({ branchList, onChooseBranch, ticket, appointment, onOpenTicket, onRequestLocation, onPauseLocation, onOpenAreaSearch, onOpenLowData, onOpenStaff, locationStatus, userLocation, searchArea, searchOrigin, profile, savedMinutes, role }) {
+export default function HomeView({ branchList, onChooseBranch, ticket, appointment, onOpenTicket, onRequestLocation, onPauseLocation, onOpenAreaSearch, onOpenLowData, onOpenStaff, locationStatus, userLocation, searchArea, searchOrigin, profile, savedMinutes, role, lowDataMode }) {
   const [category, setCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [selectedId, setSelectedId] = useState(1);
@@ -160,7 +160,8 @@ export default function HomeView({ branchList, onChooseBranch, ticket, appointme
         <ChevronRight size={18} />
       </button>
 
-      <section className="discovery-layout">
+      <section className={`discovery-layout${lowDataMode ? " low-data" : ""}`}>
+        {!lowDataMode && (
         <ServiceMap
           visibleBranches={visibleBranches}
           selectedId={selectedId}
@@ -170,6 +171,13 @@ export default function HomeView({ branchList, onChooseBranch, ticket, appointme
           userLocation={userLocation}
           searchArea={searchArea}
         />
+        )}
+        {lowDataMode && (
+          <div className="low-data-map-note" role="note">
+            <strong>Low-data mode is on</strong>
+            <span>Map hidden to save data — all {visibleBranches.length} centres listed below. Turn it off in Profile → App settings.</span>
+          </div>
+        )}
         <div className="branch-list-wrap">
           <div className="section-heading">
             <div>

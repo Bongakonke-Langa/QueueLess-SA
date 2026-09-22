@@ -5,7 +5,7 @@ import { LocateFixed } from "lucide-react";
 import { defaultSearchArea, searchRadiusKm } from "../lib/data";
 import { formatBranchFreshness } from "../lib/queue";
 
-export default function ServiceMap({ visibleBranches, selectedId, onSelect, onRequestLocation, locationStatus, userLocation, searchArea }) {
+export default function ServiceMap({ visibleBranches, selectedId, onSelect, onRequestLocation, locationStatus, userLocation, searchArea, lowDataMode }) {
   const mapElementRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const leafletRef = useRef(null);
@@ -36,13 +36,20 @@ export default function ServiceMap({ visibleBranches, selectedId, onSelect, onRe
       const tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        crossOrigin: true,
+        ...(lowDataMode && { attribution: false }),
       });
       tiles.on("load", () => setTileStatus("ready"));
       tiles.on("tileerror", () => setTileStatus((current) => current === "loading" ? "error" : current));
       tiles.addTo(map);
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
-      map.setView([defaultSearchArea.latitude, defaultSearchArea.longitude], 11);
+      map.setView([defaultSearchArea.latitude, defaultSearchArea.longitude], 11, { animate: false });
+      if (lowDataMode) {
+        setMapReady(true);
+        setTileStatus("skipped");
+        return;
+      }
       map.whenReady(() => {
         window.setTimeout(() => map.invalidateSize({ pan: false }), 120);
         setMapReady(true);

@@ -137,6 +137,7 @@ export const defaultAppSettings = {
   largeText: false,
   highContrast: false,
   reducedMotion: false,
+  lowDataMode: false,
 };
 
 export const demoLocation = {

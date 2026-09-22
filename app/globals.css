@@ -1152,6 +1152,62 @@ h3 {
   gap: 22px;
 }
 
+/* Low-data mode: swap the hero map for a contemplative list-only layout.
+ * The tile layer never loads here, so mobile users on capped / roaming
+ * connections only download the small list bundle + API responses. */
+.discovery-layout.low-data {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.discovery-layout.low-data .service-map,
+.discovery-layout.low-data .branch-list-wrap {
+  display: none;
+}
+
+.discovery-layout.low-data .branch-list {
+  display: grid;
+  gap: 11px;
+  align-content: start;
+}
+
+.discovery-layout.low-data .branch-card {
+  padding: 14px 16px;
+  border-left: 4px solid var(--teal);
+  background: var(--card);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 2px 8px rgba(40,70,60,0.06);
+  border-radius: 8px;
+  min-height: 0;
+  border-bottom: none;
+}
+
+.discovery-layout.low-data .branch-card::after {
+  display: none;
+}
+
+.discovery-layout.low-data .branch-card .branch-audit {
+  display: none;
+}
+
+.low-data-map-note {
+  grid-column: 1;
+  padding: 20px 20px 22px;
+  background: linear-gradient(180deg, #fbf9f2 0%, #f3f1e9 100%);
+  border: 1px dashed #d3cabf;
+  border-radius: 10px;
+  color: #5a4a2c;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.low-data-map-note strong {
+  display: block;
+  color: #3b2f15;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
 .service-map {
   position: relative;
   height: 275px;

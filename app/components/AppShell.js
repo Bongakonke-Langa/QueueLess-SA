@@ -110,7 +110,7 @@ export default function AppShell() {
   const isStaffRole = user.role === "STAFF" || user.role === "ADMIN";
 
   return (
-    <div className={`app-shell ${sidebarCollapsed ? "sidebar-collapsed" : ""} ${appSettings.largeText ? "large-text" : ""} ${appSettings.highContrast ? "high-contrast" : ""} ${appSettings.reducedMotion ? "reduced-motion" : ""}`} onPointerDown={primeAudio} onClickCapture={primeAudio}>
+    <div className={`app-shell ${sidebarCollapsed ? "sidebar-collapsed" : ""} ${appSettings.largeText ? "large-text" : ""} ${appSettings.highContrast ? "high-contrast" : ""} ${appSettings.reducedMotion ? "reduced-motion" : ""} ${appSettings.lowDataMode ? "low-data-mode" : ""}`} onPointerDown={primeAudio} onClickCapture={primeAudio}>
       <AppNavigation view={view} onNavigate={navigate} hasTicket={Boolean(ticket)} profile={profile} collapsed={sidebarCollapsed} onToggleCollapse={toggleSidebar} role={user.role} />
       <div className="app-stage">
         <TopBar
@@ -123,7 +123,7 @@ export default function AppShell() {
           userLocation={userLocation}
           profile={profile}
         />
-        {view === "home" && <HomeView branchList={operationalBranches} onChooseBranch={openBranch} ticket={ticket} appointment={appointment} onOpenTicket={() => navigate("ticket")} onRequestLocation={handleLocationControl} onPauseLocation={pauseLocationTracking} onOpenAreaSearch={() => setAreaSearchOpen(true)} onOpenLowData={() => setLowDataOpen(true)} onOpenStaff={isStaffRole ? () => navigate("staff") : undefined} locationStatus={locationStatus} userLocation={userLocation} searchArea={activeSearchArea} searchOrigin={activeSearchArea} profile={profile} savedMinutes={totalSavedMinutes} role={user.role} />}
+        {view === "home" && <HomeView branchList={operationalBranches} onChooseBranch={openBranch} ticket={ticket} appointment={appointment} onOpenTicket={() => navigate("ticket")} onRequestLocation={handleLocationControl} onPauseLocation={pauseLocationTracking} onOpenAreaSearch={() => setAreaSearchOpen(true)} onOpenLowData={() => setLowDataOpen(true)} onOpenStaff={isStaffRole ? () => navigate("staff") : undefined} locationStatus={locationStatus} userLocation={userLocation} searchArea={activeSearchArea} searchOrigin={activeSearchArea} profile={profile} savedMinutes={totalSavedMinutes} role={user.role} lowDataMode={appSettings.lowDataMode} />}
         {view === "ticket" && (ticket ? <QueueTicket ticket={ticket} branchList={operationalBranches} onAdvance={advanceQueue} onCancel={cancelQueue} onCheckedIn={checkIn} onComplete={completeQueue} userLocation={userLocation} demoMode={demoMode} /> : <EmptyTicket onExplore={() => navigate("home")} />)}
         {view === "activity" && <ActivityView onOpenVisit={openVisit} locationHistory={locationHistory} completedVisits={completedVisits} totalSavedMinutes={totalSavedMinutes} onSelectLocation={(area) => { selectSearchArea(area); navigate("home"); }} />}
         {view === "profile" && <ProfileView soundEnabled={soundEnabled} onSoundChange={setSoundEnabled} queuePrefs={queuePrefs} onQueuePrefsChange={setQueuePrefs} userLocation={userLocation} profile={profile} onEditProfile={() => setProfileEditorOpen(true)} onOpenSettings={() => setAppSettingsOpen(true)} onPreferenceChange={updatePreference} onLogout={logout} role={user.role} branchName={operationalBranches.find((branch) => branch.id === user.branchId)?.name} />}

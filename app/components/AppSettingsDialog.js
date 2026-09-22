@@ -38,6 +38,10 @@ export default function AppSettingsDialog({ settings, onClose, onSave }) {
           <span><strong>Reduce motion</strong><small>Minimise animated transitions throughout the app</small></span>
           <Switch checked={draft.reducedMotion} onCheckedChange={(checked) => toggle("reducedMotion")} aria-label="Reduce motion" />
         </div>
+        <div className="switch-row">
+          <span><strong>Low-data mode</strong><small>Skip the map and show branches as a list — saves data on capped connections</small></span>
+          <Switch checked={!!draft.lowDataMode} onCheckedChange={(checked) => toggle("lowDataMode")} aria-label="Low-data mode" />
+        </div>
       </div>
       <div className="profile-editor-footer">
         <button type="button" className="secondary-button" onClick={onClose}>Cancel</button>
