@@ -7,7 +7,6 @@ export const metadata = {
   title: "QueueLess SA",
   description: "Join the queue before you leave home.",
   manifest: "/manifest.json",
-  viewport: { themeColor: "#0e3b32" },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -20,6 +19,10 @@ export const metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
+};
+
+export const viewport = {
+  themeColor: "#0e3b32",
 };
 
 export default function RootLayout({ children }) {
