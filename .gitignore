@@ -4,3 +4,7 @@ node_modules
 .netlify
 *.log
 .DS_Store
+.env
+*.db
+*.db-journal
+.zcode/

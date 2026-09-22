@@ -1,0 +1,27 @@
+# Local Postgres for development and testing.
+#
+#   docker compose up -d
+#   npm run db:prepare     # applies migrations and seeds the demo network
+#   npm run dev
+#
+# The credentials match the DATABASE_URL in `.env.example`.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: queueless
+      POSTGRES_PASSWORD: queueless
+      POSTGRES_DB: queueless
+    ports:
+      - "5432:5432"
+    volumes:
+      - queueless-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U queueless -d queueless"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  queueless-db:

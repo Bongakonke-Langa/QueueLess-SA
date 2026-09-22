@@ -1,0 +1,143 @@
+generator client {
+  provider = "prisma-client-js"
+  // Pre-compiled query engines so the serverless hosts (Netlify / Vercel run
+  // Amazon Linux) get the right binary, not the developer's local one.
+  binaryTargets = ["native", "rhel-openssl-3.0.x", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  // Pooled connection for the app (e.g. Neon's `-pooler` host).
+  url       = env("DATABASE_URL")
+  // Direct connection used only by migrations, which cannot run through a pooler.
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  phone         String         @unique
+  name          String         @default("")
+  city          String         @default("Johannesburg")
+  province      String         @default("Gauteng")
+  avatar        String         @default("")
+  role          String         @default("CITIZEN") // CITIZEN | STAFF | ADMIN
+  branchId      Int?
+  branch        Branch?        @relation(fields: [branchId], references: [id])
+  tickets       QueueTicket[]
+  appointments  Appointment[]
+  notifications Notification[]
+  sessions      Session[]
+  createdAt     DateTime       @default(now())
+}
+
+model OtpCode {
+  id         Int       @id @default(autoincrement())
+  phone      String
+  code       String
+  expiresAt  DateTime
+  consumedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([phone, code])
+}
+
+model Session {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model Branch {
+  id                  Int             @id @default(autoincrement())
+  name                String          @unique
+  type                String // home-affairs | clinic | bank
+  address             String
+  latitude            Float
+  longitude           Float
+  wait                Int             @default(15)
+  people              Int             @default(0)
+  status              String          @default("")
+  closes              String          @default("15:30")
+  accent              String          @default("teal")
+  counters            Int             @default(4)
+  capacity            Int             @default(32)
+  virtualJoins        Boolean         @default(true)
+  operationalStatus   String          @default("open") // open | paused | closed
+  graceMinutes        Int             @default(10)
+  priorityAccess      Boolean         @default(false)
+  updatedMinutes      Int             @default(1)
+  dataSource          String          @default("Branch staff")
+  servedToday         Int             @default(0)
+  unavailableServices String          @default("[]") // JSON array of service names
+  services            BranchService[]
+  tickets             QueueTicket[]
+  appointments        Appointment[]
+  staff               User[]
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+}
+
+model BranchService {
+  id       Int    @id @default(autoincrement())
+  branchId Int
+  branch   Branch @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  name     String
+  duration String
+
+  @@index([branchId])
+}
+
+model QueueTicket {
+  id           Int       @id @default(autoincrement())
+  code         String    @unique
+  userId       Int
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  branchId     Int
+  branch       Branch    @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  serviceName  String
+  status       String    @default("WAITING") // WAITING | CALLED | SERVING | COMPLETED | CANCELLED | NO_SHOW
+  checkedIn    Boolean   @default(false)
+  initialAhead Int       @default(0)
+  leaveAlertSent Boolean @default(false)
+  joinedAt     DateTime  @default(now())
+  calledAt     DateTime?
+  servedAt     DateTime?
+  completedAt  DateTime?
+  cancelledAt  DateTime?
+  savedMinutes Int?
+
+  @@index([branchId, status])
+  @@index([userId, status])
+}
+
+model Appointment {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  branchId    Int
+  branch      Branch   @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  serviceName String
+  slotAt      DateTime
+  status      String   @default("CONFIRMED")
+  createdAt   DateTime @default(now())
+
+  @@index([userId, status])
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  body      String
+  type      String   @default("queue")
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId, read])
+}

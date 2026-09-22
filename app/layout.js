@@ -1,5 +1,6 @@
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
+import { AnchoredToastProvider, ToastProvider } from "./components/ui/toast";
 
 export const metadata = {
   title: "QueueLess SA",
@@ -9,7 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ToastProvider>
+          <AnchoredToastProvider>{children}</AnchoredToastProvider>
+        </ToastProvider>
+      </body>
     </html>
   );
 }

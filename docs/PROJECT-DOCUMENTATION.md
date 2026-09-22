@@ -207,7 +207,8 @@ Reliable fallback: if GPS permission is blocked, use **Use demo position**. If i
 
 - Branch queue information and impact metrics are simulated.
 - Production SMS, WhatsApp, and USSD providers are represented by interactive demos, not external messaging integrations.
-- There is no production identity, authentication, database, or branch ticketing integration.
+- Sign-in uses a simulated OTP delivered to the server console (and the login screen in demo mode); there is no production identity provider or SIM-bound verification.
+- State is stored in PostgreSQL, but there is no integration with a real branch ticketing or queue-management system.
 - The synthetic network is not a complete directory of South African service centres.
 - GPS depends on device services and browser permission.
 - Public map and geocoding services require internet access and production-scale replacements.
@@ -225,7 +226,9 @@ Reliable fallback: if GPS permission is blocked, use **Use demo position**. If i
 ## 13. Local Commands
 
 ```bash
+docker compose up -d    # local PostgreSQL
 npm install
+npm run db:prepare      # migrate + seed the demo network
 npm run dev
 npm run build
 npm run start

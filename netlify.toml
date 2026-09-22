@@ -1,0 +1,15 @@
+[build]
+  # Migrations and the demo seed run before the build so a fresh database is
+  # provisioned on the first deploy. `prisma generate` runs via postinstall.
+  command = "npm run db:prepare && npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# The database is hosted (Neon/Supabase), so nothing here needs a local disk.
+# Set DATABASE_URL and NEXT_PUBLIC_DEMO_MODE in the Netlify UI:
+#   Site configuration -> Environment variables

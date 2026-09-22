@@ -8,12 +8,24 @@ QueueLess SA is a polished, mobile-first queue operating system for citizens and
 
 **Backup Vercel link:** [https://queueless-sa.vercel.app/](https://queueless-sa.vercel.app/)
 
+> **Note:** these URLs currently serve an earlier, database-free build. Redeploy
+> using the steps below before presenting so the live site matches this code
+> (OTP sign-in, live queue state, Staff console).
+
 ## Run locally
 
+The app stores users, sessions, and queue state in PostgreSQL. Start a local
+database first:
+
 ```bash
-npm install
+docker compose up -d      # local Postgres 16 on port 5432
+npm install               # runs `prisma generate` automatically
+npm run db:prepare        # applies migrations and seeds the demo network
 npm run dev
 ```
+
+No Docker? Point `DATABASE_URL` and `DIRECT_URL` in `.env` at any PostgreSQL
+instance — a free Neon or Supabase database works — then run `npm run db:prepare`.
 
 Production check:
 
@@ -23,6 +35,31 @@ npm run start
 ```
 
 Open `http://127.0.0.1:3000/`.
+
+## Deploying
+
+Set these environment variables on the host (Netlify UI or Vercel project
+settings):
+
+| Variable | Value |
+| --- | --- |
+| `DATABASE_URL` | **Pooled** PostgreSQL connection string (Neon: the host containing `-pooler`) |
+| `DIRECT_URL` | **Direct** connection string — migrations cannot run through a pooler |
+| `NEXT_PUBLIC_DEMO_MODE` | `1` to keep the demo affordances on |
+
+With a pooler in front of the database, append `?pgbouncer=true&connection_limit=1`
+to `DATABASE_URL` and use the unpooled host for `DIRECT_URL`. Both variables are
+required; migrations target `DIRECT_URL` while the app uses `DATABASE_URL`.
+
+Then deploy normally:
+
+- **Vercel** picks up the `vercel-build` script automatically, which runs
+  `prisma migrate deploy`, seeds the demo network, and builds.
+- **Netlify** uses the committed `netlify.toml`, which runs the same sequence.
+
+`prisma generate` runs on install via the `postinstall` script, so the correct
+query engine for the host platform is always present.
+
 
 The detailed map and live place search require internet access. Precise GPS requires browser Location permission; **Use demo position** provides a reliable judging fallback.
 
