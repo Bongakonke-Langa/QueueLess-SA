@@ -191,6 +191,7 @@ export default function StaffView({
           <p>Call the next citizen, keep settings current — every update reaches citizen screens instantly.</p>
         </div>
         <div className="staff-heading-actions">
+          {process.env.NEXT_PUBLIC_QUEUE_BUSINESS && <a className="secondary-button" href={"/desk/" + process.env.NEXT_PUBLIC_QUEUE_BUSINESS}>Merchant desk</a>}
           <button className="secondary-button" onClick={onCitizenView}><CircleUserRound size={18} /> Citizen app</button>
         </div>
       </section>

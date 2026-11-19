@@ -31,6 +31,9 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (request.method !== "GET") return;
   const url = new URL(request.url);
+  // Live tickets and authenticated Supabase responses must not enter the shell cache.
+  if (url.origin !== self.location.origin && !url.hostname.includes("tile.openstreetmap.org")) return;
+  if (/^\/(desk|join|queue-backend)(\/|$)/.test(url.pathname)) return;
 
   // API + auth: network first, never serve stale queue data.
   if (url.pathname.startsWith("/api/")) {
