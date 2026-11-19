@@ -1168,21 +1168,16 @@
   }
 }
 @media print {
-  body:has(.q-app) {
+  body:has(> .q-print-only) {
     background: white;
+    min-height: 0;
   }
-  body:has(.q-app) * {
-    visibility: hidden;
-  }
-  .q-print-only,
-  .q-print-only * {
-    visibility: visible !important;
+  body:has(> .q-print-only) > :not(.q-print-only) {
+    display: none !important;
   }
   .q-print-only {
     display: block;
-    position: fixed;
-    inset: 0;
-    padding: 2cm;
+    padding: 1cm;
     text-align: center;
     background: #fff;
     color: #123b28;

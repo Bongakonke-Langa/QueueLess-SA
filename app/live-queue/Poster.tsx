@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { createPortal, flushSync } from "react-dom";
 import QRCode from "qrcode";
 import { Download, Printer, QrCode } from "lucide-react";
 import type { Business } from "./model";
@@ -8,6 +9,14 @@ export default function Poster({ business }: { business: Business }) {
   const [qr, setQr] = useState("");
   const [url, setUrl] = useState("");
   const [error, setError] = useState(false);
+  const [printing, setPrinting] = useState(false);
+  function printPoster() {
+    flushSync(() => setPrinting(true));
+    window.addEventListener("afterprint", () => setPrinting(false), {
+      once: true,
+    });
+    window.print();
+  }
   useEffect(() => {
     let valid = true;
     const link = new URL("/join/" + business.slug, window.location.origin).href;
@@ -78,19 +87,23 @@ export default function Poster({ business }: { business: Business }) {
           title="Print join poster"
           aria-label="Print join poster"
           disabled={!qr}
-          onClick={() => window.print()}
+          onClick={printPoster}
         >
           <Printer size={16} />
         </button>
       </div>
-      <div className="q-print-only">
-        <h1>{business.name}</h1>
-        <p>{business.location}</p>
-        <h2>Scan to join our queue</h2>
-        {qr && <img src={qr} alt="Join QR code" />}
-        <p>No account needed. Keep your ticket open for live updates.</p>
-        <p>{url}</p>
-      </div>
+      {printing &&
+        createPortal(
+          <div className="q-print-only">
+            <h1>{business.name}</h1>
+            <p>{business.location}</p>
+            <h2>Scan to join our queue</h2>
+            {qr && <img src={qr} alt="Join QR code" />}
+            <p>No account needed. Keep your ticket open for live updates.</p>
+            <p>{url}</p>
+          </div>,
+          document.body,
+        )}
     </section>
   );
 }
