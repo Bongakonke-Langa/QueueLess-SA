@@ -7,6 +7,7 @@ export default function ServiceWorkerRegister() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (!("serviceWorker" in navigator)) return;
+    if (/^\/(desk|join)(\/|$)/.test(window.location.pathname)) return;
     // Skip on localhost dev with constantly-changing chunks? No — the worker
     // is network-first for /api and cache-first only for shell/tiles, so it
     // is safe in dev too. Still, only register in production to keep dev

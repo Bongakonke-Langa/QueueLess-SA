@@ -150,6 +150,9 @@ export default function LoginPage() {
         )}
 
         <p className="auth-foot"><ShieldCheck size={13} /> Your number is only used to secure your place in queues.</p>
+        {process.env.NEXT_PUBLIC_QUEUE_BUSINESS && (
+          <p className="auth-foot"><a href={"/join/" + process.env.NEXT_PUBLIC_QUEUE_BUSINESS}>Join a guest queue</a> · <a href={"/desk/" + process.env.NEXT_PUBLIC_QUEUE_BUSINESS}>Merchant desk</a></p>
+        )}
       </div>
     </main>
   );
